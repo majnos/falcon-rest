@@ -16,11 +16,12 @@ Prerequisites:
 ===============
 
 install pyenv:
-https://github.com/pyenv/pyenv-installer
+`https://github.com/pyenv/pyenv-installer`
 
 install pipenv:
-sudo -H pip install -U pipenv
+`sudo -H pip install -U pipenv`
 
+set the version for repo
 `pyenv install 3.7.1`
 
 `pyenv local 3.7.1`
@@ -37,15 +38,16 @@ Run server:
 Test functionality:
 `make verify`
 
+Test health:
+`curl http://localhost:8000/reuters/health`
+
+
 TBD:
 * list articles according to time <DATETIME1>.....<DATETIME2>
-* increase debugability
-* streamline js like features for python
 * increase readability of the cooe
 * be able to debug tests also in vscode (PYTHONPATH)
 * add regex search for fulltext
-* add test for sgml=>json parser (verification of the elements)
-* fix linting issues and automatic linting before commit
+* add precommit hook
 * create better documentation for api (swagger)
 
 
@@ -56,13 +58,13 @@ import:
 `h2o.postman_collection` to your postman and playaround with the rest api
 
 APIs:
-1) `localhost:5000/reuters/articles/<int:newid>`  
+1) `localhost:8000/reuters/articles/<int:newid>`  
 returns detail view of the article with body for display of the article to readers
-2) `localhost:5000/retures/articles?`
+2) `localhost:8000/retures/articles?`
 returns list of articles
 you can use querystring to filter out the articles
 e.g.
-`http://localhost:5000/reuters/articles?metadata.topics=YES&places=usa`
+`http://localhost:8000/reuters/articles?metadata.topics=YES&places=usa`
  * metadata.newid
  * metadtaa.oldid
  * metadta.cgisplit
@@ -75,7 +77,7 @@ e.g.
  * companies
  * topics
  
-3) `http://localhost:5002/reuters/search?fulltext.body=businessmen`
+3) `http://localhost:8000/reuters/search?fulltext.body=businessmen`
 returns the fulltext search 
 you can query these by fulltext:
 fulltext.title
