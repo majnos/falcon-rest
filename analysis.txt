@@ -1,0 +1,87 @@
+# Keeping structure the same as in original file
+# This allows me to use javascript dot notation to get into nested jsons
+
+# METADATA = {
+#   "newid",
+#   "oldid",
+#   "cgisplit",
+#   "lewissplit",
+#   "topics"
+# }
+
+# FULLTEXT = {
+#   "title",
+#   "dateline",
+#   "body"
+# }
+
+# LISTITEMS = {
+#   "places",
+#   "people",
+#   "orgs",
+#   "exchanges",
+#   "companies"
+#   "topics"
+# }
+
+schema:
+{
+  "reuters": {
+    "attr": {
+      "newid",
+      "oldid",
+      "n",
+      "set",
+      "cgisplit",
+      "ewissplit",
+      "topics",
+    },
+    "date",
+    "topics",
+    "places",
+    "people",
+    "orgs",
+    "exchanges",
+    "companies",
+    "unknown",
+    "text": {
+        "title",
+        "dateline",
+        "body"
+      }
+  }
+}
+
+
+Expected APIs
+1. API to list content  (overview)
+  a) list by date
+     * greater than datetime
+     * lower than datetime
+     * in range of 2 datetimes
+  b) list by type of the content:
+    "topics" one of [set]
+    "places" one of [set]
+    "people" one of [set]
+    "orgs" one of [set]
+    "exchanges" one of [set]
+    "companies" one of [set]
+2. API to search content
+ create full text search over these fields:
+     "text": {
+        "title".substring(xyz)
+        "dateline".substring(xyz)
+        "body".substring(xyz)
+      }
+      returns none, one or many (overview)
+3. API get a specific content by id/any identifier (get body according to identifier usuallly oldid/newid)
+  metadata are equal to one specific value:
+  e.g. : <REUTERS TOPICS="YES" LEWISSPLIT="TRAIN" CGISPLIT="TRAINING-SET" OLDID="5544" NEWID="1">
+    "reuters": {
+    "attr": {
+      "newid" == value
+      "oldid" == value
+      "cgisplit" == value
+      "lewissplit" == value
+      "topics" == value
+    },

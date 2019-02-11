@@ -1,0 +1,68 @@
+install pyenv:
+https://github.com/pyenv/pyenv-installer
+
+install pipenv:
+sudo -H pip install -U pipenv
+
+falcon:
+https://github.com/falconry/falcon
+
+
+https://stackoverflow.com/questions/4452537/sgml-to-xml-conversion
+https://github.com/ankailou/reuters-preprocessing
+https://code-examples.net/es/docs/scikit_learn/auto_examples/applications/plot_out_of_core_classification
+https://medium.com/@franksands/searching-an-xml-in-python-77d8028dea42
+https://stackoverflow.com/questions/2612548/extracting-an-attribute-value-with-beautifulsoup
+pip freeze > requirements.txt
+osx file1.sgl > file2.xml
+https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c
+
+how-to install pyenv:
+
+#!/bin/bash
+
+sudo apt-get install build-essential git libreadline-dev zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev
+sudo apt-get install git python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libffi-dev
+sudo pip install virtualenvwrapper
+
+git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ~/.pyenv/plugins/pyenv-virtualenvwrapper
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+echo 'pyenv virtualenvwrapper' >> ~/.bashrc
+
+exec $SHELL
+
+install
+
+pyenv install
+pipenv install
+pipenv install -dev
+
+// experimental:
+import os
+abs_path = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = "../sgm-data/reut2-020.sgm"
+sgm_file = os.path.join(abs_path, rel_path)
+
+from bs4 import BeautifulSoup
+with open(sgm_file, encoding="utf8", errors='ignore') as file:
+    soup = BeautifulSoup(file, "html.parser") # consider using lxml to get better speed
+    entries = soup.find_all('reuters') # get entries
+    dates = soup.find_all('date') # get entries
+    titles = soup.find_all('title') # get entries
+    topics = soup.find_all('topics') # get entries
+    date = soup.find_all('date') # get entries
+    datelines = soup.find_all('dateline') # get entries
+    reuters = soup.find_all("reuters", attrs={"oldid":"16309"})
+
+print('stop')
+
+template makefile:
+https://github.com/gsemet/pipenv-to-requirements/blob/master/Makefile
+
+vscode recipes
+https://github.com/Microsoft/vscode-recipes

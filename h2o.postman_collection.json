@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "63374c51-e1ba-4e33-9bf6-2d0f0be74b27",
+		"name": "h2o",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/reuters/articles?metadata.topics=YES&places=usa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"reuters",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "metadata.topics",
+							"value": "YES"
+						},
+						{
+							"key": "places",
+							"value": "usa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nonexistent-key",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/reuters/articles?random=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reuters",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "random",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "returns-nothing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/reuters/articles?oldid=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reuters",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "oldid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/reuters/articles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reuters",
+						"articles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/reuters/search?fulltext.body=businessmen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reuters",
+						"search"
+					],
+					"query": [
+						{
+							"key": "fulltext.body",
+							"value": "businessmen"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}

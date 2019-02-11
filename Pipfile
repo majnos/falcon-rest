@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+beautifulsoup4 = "*"
+flask = "*"
+jsonpath_rw = "*"
+falcon = "*"
+gunicorn = "*"
+ujson = "*"
+
+[dev-packages]
+yapf = "*"
+pytest = "*"
+pytest-spec = "*"
+autopep8 = "*"
+python-dotenv = "*"
+pylint = "*"
+
+[requires]
+python_version = "3.7.1"
